@@ -1,0 +1,308 @@
+
+    drop table CRM3A.AUTH_FUNCMSG cascade constraints;
+
+    drop table CRM3A.AUTH_ROLEFUNCREL cascade constraints;
+
+    drop table CRM3A.AUTH_ROLEMSG cascade constraints;
+
+    drop table CRM3A.AUTH_USERMSG cascade constraints;
+
+    drop table CRM3A.AUTH_USERROLEREL cascade constraints;
+
+    create table CRM3A.AUTH_FUNCMSG (
+        FUNCID number(22,0) not null unique,
+        FUNCCODE varchar2(100 char),
+        FFUNCID number(22,0),
+        FUNCNO number(22,0),
+        FUNCCHN varchar2(100 char) not null,
+        FUNCDESC varchar2(200 char),
+        CRTUSER number(22,0) not null,
+        CRTTIME varchar2(14 char) not null,
+        UPDTUSER number(22,0),
+        UPDTTIME varchar2(14 char),
+        primary key (FUNCID),
+        unique (FUNCID)
+    );
+
+    comment on table CRM3A.AUTH_FUNCMSG is
+        '业务功能信息表，存储所有的业务功能';
+
+    comment on column CRM3A.AUTH_FUNCMSG.FUNCID is
+        '业务功能标识';
+
+    comment on column CRM3A.AUTH_FUNCMSG.FUNCCODE is
+        '业务功能代码';
+
+    comment on column CRM3A.AUTH_FUNCMSG.FFUNCID is
+        '父节点';
+
+    comment on column CRM3A.AUTH_FUNCMSG.FUNCNO is
+        '业务功能编号';
+
+    comment on column CRM3A.AUTH_FUNCMSG.FUNCDESC is
+        '业务功能描述';
+
+    comment on column CRM3A.AUTH_FUNCMSG.CRTUSER is
+        '创建者';
+
+    comment on column CRM3A.AUTH_FUNCMSG.CRTTIME is
+        '创建日期';
+
+    comment on column CRM3A.AUTH_FUNCMSG.UPDTUSER is
+        '最后修改者';
+
+    comment on column CRM3A.AUTH_FUNCMSG.UPDTTIME is
+        '最后修改时间';
+
+    create table CRM3A.AUTH_ROLEFUNCREL (
+        ROLEID number(22,0) not null,
+        FUNCID number(22,0) not null,
+        MODFUNCID number(22,0),
+        CRTUSER number(22,0) not null,
+        CRTTIME varchar2(14 char) not null,
+        UPDTUSER number(22,0),
+        UPDTTIME varchar2(14 char),
+        primary key (ROLEID, FUNCID),
+        unique (ROLEID, FUNCID)
+    );
+
+    comment on table CRM3A.AUTH_ROLEFUNCREL is
+        '角色与业务功能关系表';
+
+    comment on column CRM3A.AUTH_ROLEFUNCREL.ROLEID is
+        '角色代码';
+
+    comment on column CRM3A.AUTH_ROLEFUNCREL.FUNCID is
+        '业务功能代码';
+
+    comment on column CRM3A.AUTH_ROLEFUNCREL.MODFUNCID is
+        '模块功能代码';
+
+    comment on column CRM3A.AUTH_ROLEFUNCREL.CRTUSER is
+        '创建者';
+
+    comment on column CRM3A.AUTH_ROLEFUNCREL.CRTTIME is
+        '创建日期';
+
+    comment on column CRM3A.AUTH_ROLEFUNCREL.UPDTUSER is
+        '最后修改者';
+
+    comment on column CRM3A.AUTH_ROLEFUNCREL.UPDTTIME is
+        '最后修改时间';
+
+    create table CRM3A.AUTH_ROLEMSG (
+        ROLEID number(22,0) not null unique,
+        GRPID number(22,0),
+        ROLENAME varchar2(20 char),
+        ROLEDESC varchar2(200 char),
+        CRTUSER number(22,0) not null,
+        CRTTIME varchar2(14 char) not null,
+        UPDTUSER number(22,0),
+        UPDTTIME varchar2(14 char),
+        primary key (ROLEID),
+        unique (ROLEID)
+    );
+
+    comment on table CRM3A.AUTH_ROLEMSG is
+        '角色信息表';
+
+    comment on column CRM3A.AUTH_ROLEMSG.ROLEID is
+        '角色代码';
+
+    comment on column CRM3A.AUTH_ROLEMSG.GRPID is
+        '用户组代码 所属实体用户组(0-特殊，系统默认，其他是用户建立）';
+
+    comment on column CRM3A.AUTH_ROLEMSG.ROLENAME is
+        '角色名';
+
+    comment on column CRM3A.AUTH_ROLEMSG.ROLEDESC is
+        '角色说明';
+
+    comment on column CRM3A.AUTH_ROLEMSG.CRTUSER is
+        '创建者';
+
+    comment on column CRM3A.AUTH_ROLEMSG.CRTTIME is
+        '创建日期';
+
+    comment on column CRM3A.AUTH_ROLEMSG.UPDTUSER is
+        '最后修改者';
+
+    comment on column CRM3A.AUTH_ROLEMSG.UPDTTIME is
+        '最后修改时间';
+
+    create table CRM3A.AUTH_USERMSG (
+        USERID number(22,0) not null unique,
+        LOGINNAME varchar2(20 char) not null,
+        PASSWD varchar2(64 char) not null,
+        WORKFLG char(1 char) not null,
+        DATETIME varchar2(14 char) not null,
+        ONLNFLG char(1 char) not null,
+        USERFLAG char(1 char) not null,
+        EMPID number(22,0) not null,
+        GRPID number(22,0) not null,
+        LOGINID number(22,0) not null,
+        FUNCID number(22,0),
+        RMK varchar2(200 char),
+        CRTUSER number(22,0) not null,
+        CRTTIME varchar2(14 char) not null,
+        UPDTUSER number(22,0),
+        UPDTTIME varchar2(14 char),
+        VPDA_STATUS varchar2(1 char),
+        VPDA_FRCOUT varchar2(1 char),
+        VPDA_RESET varchar2(1 char),
+        VPDA_MACHID varchar2(40 char),
+        VPDA_PHONE varchar2(20 char),
+        VPDA_STDATE varchar2(14 char),
+        VPDA_FBDATE varchar2(14 char),
+        VPDA_UPDATE varchar2(14 char),
+        PORTALID varchar2(20 char),
+        primary key (USERID),
+        unique (USERID)
+    );
+
+    comment on table CRM3A.AUTH_USERMSG is
+        '用户信息表';
+
+    comment on column CRM3A.AUTH_USERMSG.USERID is
+        '用户代码';
+
+    comment on column CRM3A.AUTH_USERMSG.LOGINNAME is
+        '用户登陆名';
+
+    comment on column CRM3A.AUTH_USERMSG.PASSWD is
+        '密码';
+
+    comment on column CRM3A.AUTH_USERMSG.WORKFLG is
+        '启用标志 1:禁用';
+
+    comment on column CRM3A.AUTH_USERMSG.DATETIME is
+        '启用日期';
+
+    comment on column CRM3A.AUTH_USERMSG.ONLNFLG is
+        '在线标志 0:在线 1:正常退出 2异常退出';
+
+    comment on column CRM3A.AUTH_USERMSG.USERFLAG is
+        '身份标识';
+
+    comment on column CRM3A.AUTH_USERMSG.EMPID is
+        '雇员标识';
+
+    comment on column CRM3A.AUTH_USERMSG.GRPID is
+        '所属用户组';
+
+    comment on column CRM3A.AUTH_USERMSG.LOGINID is
+        '用户登陆号';
+
+    comment on column CRM3A.AUTH_USERMSG.FUNCID is
+        '登录首页';
+
+    comment on column CRM3A.AUTH_USERMSG.RMK is
+        '备注';
+
+    comment on column CRM3A.AUTH_USERMSG.CRTUSER is
+        '创建者';
+
+    comment on column CRM3A.AUTH_USERMSG.CRTTIME is
+        '创建日期';
+
+    comment on column CRM3A.AUTH_USERMSG.UPDTUSER is
+        '最后修改者';
+
+    comment on column CRM3A.AUTH_USERMSG.UPDTTIME is
+        '最后修改时间';
+
+    comment on column CRM3A.AUTH_USERMSG.VPDA_STATUS is
+        'PDA用户状态(0.使用，1.禁用)';
+
+    comment on column CRM3A.AUTH_USERMSG.VPDA_FRCOUT is
+        'PDA强行签退标志(0.否，1.是)';
+
+    comment on column CRM3A.AUTH_USERMSG.VPDA_RESET is
+        'PDA密码重置标志(0.非重置，1.重置)';
+
+    comment on column CRM3A.AUTH_USERMSG.VPDA_MACHID is
+        'PDA机器码';
+
+    comment on column CRM3A.AUTH_USERMSG.VPDA_PHONE is
+        'PDA电话号码';
+
+    comment on column CRM3A.AUTH_USERMSG.VPDA_STDATE is
+        'PDA启用日期';
+
+    comment on column CRM3A.AUTH_USERMSG.VPDA_FBDATE is
+        'PDA禁用日期';
+
+    comment on column CRM3A.AUTH_USERMSG.VPDA_UPDATE is
+        'PDA更新日期';
+
+    create table CRM3A.AUTH_USERROLEREL (
+        USERID number(22,0) not null,
+        ROLEID number(22,0) not null,
+        CRTUSER number(22,0) not null,
+        CRTTIME varchar2(14 char) not null,
+        UPDTUSER number(22,0),
+        UPDTTIME varchar2(14 char),
+        primary key (USERID, ROLEID),
+        unique (USERID, ROLEID)
+    );
+
+    comment on table CRM3A.AUTH_USERROLEREL is
+        '用户与角色关系表';
+
+    comment on column CRM3A.AUTH_USERROLEREL.USERID is
+        '用户代码';
+
+    comment on column CRM3A.AUTH_USERROLEREL.ROLEID is
+        '角色代码';
+
+    comment on column CRM3A.AUTH_USERROLEREL.CRTUSER is
+        '创建者';
+
+    comment on column CRM3A.AUTH_USERROLEREL.CRTTIME is
+        '创建日期';
+
+    comment on column CRM3A.AUTH_USERROLEREL.UPDTUSER is
+        '最后修改者';
+
+    comment on column CRM3A.AUTH_USERROLEREL.UPDTTIME is
+        '最后修改时间';
+
+    alter table CRM3A.AUTH_ROLEFUNCREL 
+        add constraint FK4CC829E8E2836FE0 
+        foreign key (ROLEID) 
+        references CRM3A.AUTH_ROLEMSG;
+
+    alter table CRM3A.AUTH_ROLEFUNCREL 
+        add constraint FK4CC829E85DEC49A0 
+        foreign key (FUNCID) 
+        references CRM3A.AUTH_FUNCMSG;
+
+    alter table CRM3A.AUTH_ROLEFUNCREL 
+        add constraint FK_AUTH_ROL_REFERENCE_AUTH_FUN 
+        foreign key (FUNCID) 
+        references CRM3A.AUTH_FUNCMSG (FUNCID);
+
+    alter table CRM3A.AUTH_ROLEFUNCREL 
+        add constraint FK_AUTH_ROL_REFERENCE_AUTH_ROL 
+        foreign key (ROLEID) 
+        references CRM3A.AUTH_ROLEMSG (ROLEID);
+
+    alter table CRM3A.AUTH_USERROLEREL 
+        add constraint FK859EB2018D00B280 
+        foreign key (USERID) 
+        references CRM3A.AUTH_USERMSG;
+
+    alter table CRM3A.AUTH_USERROLEREL 
+        add constraint FK859EB201E2836FE0 
+        foreign key (ROLEID) 
+        references CRM3A.AUTH_ROLEMSG;
+
+    alter table CRM3A.AUTH_USERROLEREL 
+        add constraint FK_AUTH_USE_REFERENCE_AUTH_US1 
+        foreign key (USERID) 
+        references CRM3A.AUTH_USERMSG (USERID);
+
+    alter table CRM3A.AUTH_USERROLEREL 
+        add constraint FK_AUTH_USE_REFERENCE_AUTH_ROL 
+        foreign key (ROLEID) 
+        references CRM3A.AUTH_ROLEMSG (ROLEID);

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering 
+  SYSTEM "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd" >
+<hibernate-reverse-engineering>
+
+	<!--<table-filter match-schema="CRM3A" match-name="MC_.*"  package="com.guinea.mycar.entity"/>-->
+	<table-filter match-catalog="mydb" match-name="m_.*"  package="com.guinea.account.entity"/>
+<!--
+	<table-filter match-name="M_.*"  package="com.guinea.account"/>
+-->
+	<!-- 
+	<table-filter match-schema="CRM3A" match-name="AUTH_FUNCMSG"  package="com.guinea.account.entity"/>
+	<table-filter match-schema="CRM3A" match-name="AUTH_ROLEMSG"  package="com.guinea.account.entity"/>
+	<table-filter match-schema="CRM3A" match-name="AUTH_USERMSG"  package="com.guinea.account.entity"/>
+	<table-filter match-schema="CRM3A" match-name="AUTH_USERROLEREL"  package="com.guinea.account.entity"/>
+	<table-filter match-schema="CRM3A" match-name="AUTH_ROLEFUNCREL"  package="com.guinea.account.entity"/
+	<table-filter match-schema="CRM3A" match-name="M_USER"  package="com.guinea.account.entity"/>
+	<table-filter match-schema="CRM3A" match-name="M_ROLE"  package="com.guinea.account.entity"/>
+	<table-filter match-schema="CRM3A" match-name="M_RESOURCE"  package="com.guinea.account.entity"/>
+	-->
+</hibernate-reverse-engineering>

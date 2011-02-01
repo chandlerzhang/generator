@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2010-12-20 19:06:32 by Hibernate Tools 3.4.0.Beta1 -->
+<hibernate-mapping auto-import="false">
+    <class name="com.guinea.account.entity.SvwUserrolerel" table="AUTH_USERROLEREL" schema="CRM3A">
+        <comment>&#211;&#195;&#187;&#167;&#211;&#235;&#189;&#199;&#201;&#171;&#185;&#216;&#207;&#181;&#177;&#237;</comment>
+        <composite-id name="id" class="com.guinea.account.entity.SvwUserrolerelId">
+            <key-property name="userid" type="big_decimal">
+                <column name="USERID" precision="22" scale="0" />
+            </key-property>
+            <key-property name="roleid" type="big_decimal">
+                <column name="ROLEID" precision="22" scale="0" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="svwUsermsg" class="com.guinea.account.entity.SvwUsermsg" update="false" insert="false" fetch="select">
+            <column name="USERID" precision="22" scale="0" not-null="true">
+                <comment>&#211;&#195;&#187;&#167;&#180;&#250;&#194;&#235;</comment>
+            </column>
+        </many-to-one>
+        <many-to-one name="svwRolemsg" class="com.guinea.account.entity.SvwRolemsg" update="false" insert="false" fetch="select">
+            <column name="ROLEID" precision="22" scale="0" not-null="true">
+                <comment>&#189;&#199;&#201;&#171;&#180;&#250;&#194;&#235;</comment>
+            </column>
+        </many-to-one>
+        <property name="crtuser" type="big_decimal">
+            <column name="CRTUSER" precision="22" scale="0" not-null="true">
+                <comment>&#180;&#180;&#189;&#168;&#213;&#223;</comment>
+            </column>
+        </property>
+        <property name="crttime" type="string">
+            <column name="CRTTIME" length="14" not-null="true">
+                <comment>&#180;&#180;&#189;&#168;&#200;&#213;&#198;&#218;</comment>
+            </column>
+        </property>
+        <property name="updtuser" type="big_decimal">
+            <column name="UPDTUSER" precision="22" scale="0">
+                <comment>&#215;&#238;&#186;&#243;&#208;&#222;&#184;&#196;&#213;&#223;</comment>
+            </column>
+        </property>
+        <property name="updttime" type="string">
+            <column name="UPDTTIME" length="14">
+                <comment>&#215;&#238;&#186;&#243;&#208;&#222;&#184;&#196;&#202;&#177;&#188;&#228;</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

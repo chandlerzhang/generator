@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2011-1-1 21:16:03 by Hibernate Tools 3.4.0.Beta1 -->
+<hibernate-mapping auto-import="false">
+    <class name="com.guinea.account.entity.Dictionary" table="m_dictionary">
+        <id name="id" type="java.lang.Long">
+            <column name="ID" />
+            <generator class="identity" />
+        </id>
+        <property name="code" type="java.lang.Integer">
+            <column name="CODE" not-null="true" />
+        </property>
+        <property name="serial" type="java.lang.Integer">
+            <column name="SERIAL" />
+        </property>
+        <property name="name" type="string">
+            <column name="NAME" not-null="true" />
+        </property>
+        <property name="parent" type="java.lang.Long">
+            <column name="PARENT" not-null="true" />
+        </property>
+        <property name="status" type="string">
+            <column name="STATUS" length="1" not-null="true" />
+        </property>
+        <property name="creator" type="java.lang.Long">
+            <column name="CREATOR" not-null="true" />
+        </property>
+        <property name="created" type="timestamp">
+            <column name="CREATED" length="19" not-null="true" />
+        </property>
+        <property name="modificator" type="java.lang.Long">
+            <column name="MODIFICATOR" />
+        </property>
+        <property name="modified" type="timestamp">
+            <column name="MODIFIED" length="19" />
+        </property>
+    </class>
+</hibernate-mapping>

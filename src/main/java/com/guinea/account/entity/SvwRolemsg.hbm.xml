@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2010-12-20 19:06:32 by Hibernate Tools 3.4.0.Beta1 -->
+<hibernate-mapping auto-import="false">
+    <class name="com.guinea.account.entity.SvwRolemsg" table="AUTH_ROLEMSG" schema="CRM3A">
+        <comment>&#189;&#199;&#201;&#171;&#208;&#197;&#207;&#162;&#177;&#237;</comment>
+        <id name="roleid" type="big_decimal">
+            <column name="ROLEID" precision="22" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <property name="grpid" type="big_decimal">
+            <column name="GRPID" precision="22" scale="0">
+                <comment>&#211;&#195;&#187;&#167;&#215;&#233;&#180;&#250;&#194;&#235;
+                &#203;&#249;&#202;&#244;&#202;&#181;&#204;&#229;&#211;&#195;&#187;&#167;&#215;&#233;(0-&#204;&#216;&#202;&#226;&#163;&#172;&#207;&#181;&#205;&#179;&#196;&#172;&#200;&#207;&#163;&#172;&#198;&#228;&#203;&#251;&#202;&#199;&#211;&#195;&#187;&#167;&#189;&#168;&#193;&#162;&#163;&#169;</comment>
+            </column>
+        </property>
+        <property name="rolename" type="string">
+            <column name="ROLENAME" length="20">
+                <comment>&#189;&#199;&#201;&#171;&#195;&#251;</comment>
+            </column>
+        </property>
+        <property name="roledesc" type="string">
+            <column name="ROLEDESC" length="200">
+                <comment>&#189;&#199;&#201;&#171;&#203;&#181;&#195;&#247;</comment>
+            </column>
+        </property>
+        <property name="crtuser" type="big_decimal">
+            <column name="CRTUSER" precision="22" scale="0" not-null="true">
+                <comment>&#180;&#180;&#189;&#168;&#213;&#223;</comment>
+            </column>
+        </property>
+        <property name="crttime" type="string">
+            <column name="CRTTIME" length="14" not-null="true">
+                <comment>&#180;&#180;&#189;&#168;&#200;&#213;&#198;&#218;</comment>
+            </column>
+        </property>
+        <property name="updtuser" type="big_decimal">
+            <column name="UPDTUSER" precision="22" scale="0">
+                <comment>&#215;&#238;&#186;&#243;&#208;&#222;&#184;&#196;&#213;&#223;</comment>
+            </column>
+        </property>
+        <property name="updttime" type="string">
+            <column name="UPDTTIME" length="14">
+                <comment>&#215;&#238;&#186;&#243;&#208;&#222;&#184;&#196;&#202;&#177;&#188;&#228;</comment>
+            </column>
+        </property>
+        <set name="svwUserrolerels" table="AUTH_USERROLEREL" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ROLEID" precision="22" scale="0" not-null="true">
+                    <comment>&#189;&#199;&#201;&#171;&#180;&#250;&#194;&#235;</comment>
+                </column>
+            </key>
+            <one-to-many class="com.guinea.account.entity.SvwUserrolerel" />
+        </set>
+        <set name="svwRolefuncrels" table="AUTH_ROLEFUNCREL" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ROLEID" precision="22" scale="0" not-null="true">
+                    <comment>&#189;&#199;&#201;&#171;&#180;&#250;&#194;&#235;</comment>
+                </column>
+            </key>
+            <one-to-many class="com.guinea.account.entity.SvwRolefuncrel" />
+        </set>
+    </class>
+</hibernate-mapping>

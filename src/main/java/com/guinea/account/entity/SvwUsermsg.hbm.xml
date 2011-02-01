@@ -1,0 +1,141 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2010-12-20 19:06:32 by Hibernate Tools 3.4.0.Beta1 -->
+<hibernate-mapping auto-import="false">
+    <class name="com.guinea.account.entity.SvwUsermsg" table="AUTH_USERMSG" schema="CRM3A">
+        <comment>&#211;&#195;&#187;&#167;&#208;&#197;&#207;&#162;&#177;&#237;</comment>
+        <id name="userid" type="big_decimal">
+            <column name="USERID" precision="22" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <property name="loginname" type="string">
+            <column name="LOGINNAME" length="20" not-null="true">
+                <comment>&#211;&#195;&#187;&#167;&#181;&#199;&#194;&#189;&#195;&#251;</comment>
+            </column>
+        </property>
+        <property name="passwd" type="string">
+            <column name="PASSWD" length="64" not-null="true">
+                <comment>&#195;&#220;&#194;&#235;</comment>
+            </column>
+        </property>
+        <property name="workflg" type="char">
+            <column name="WORKFLG" length="1" not-null="true">
+                <comment>&#198;&#244;&#211;&#195;&#177;&#234;&#214;&#190; 1:&#189;&#251;&#211;&#195;</comment>
+            </column>
+        </property>
+        <property name="datetime" type="string">
+            <column name="DATETIME" length="14" not-null="true">
+                <comment>&#198;&#244;&#211;&#195;&#200;&#213;&#198;&#218;</comment>
+            </column>
+        </property>
+        <property name="onlnflg" type="char">
+            <column name="ONLNFLG" length="1" not-null="true">
+                <comment>&#212;&#218;&#207;&#223;&#177;&#234;&#214;&#190; 0:&#212;&#218;&#207;&#223; 1:&#213;&#253;&#179;&#163;&#205;&#203;&#179;&#246;
+                2&#210;&#236;&#179;&#163;&#205;&#203;&#179;&#246;</comment>
+            </column>
+        </property>
+        <property name="userflag" type="char">
+            <column name="USERFLAG" length="1" not-null="true">
+                <comment>&#201;&#237;&#183;&#221;&#177;&#234;&#202;&#182;</comment>
+            </column>
+        </property>
+        <property name="empid" type="big_decimal">
+            <column name="EMPID" precision="22" scale="0" not-null="true">
+                <comment>&#185;&#205;&#212;&#177;&#177;&#234;&#202;&#182;</comment>
+            </column>
+        </property>
+        <property name="grpid" type="big_decimal">
+            <column name="GRPID" precision="22" scale="0" not-null="true">
+                <comment>&#203;&#249;&#202;&#244;&#211;&#195;&#187;&#167;&#215;&#233;</comment>
+            </column>
+        </property>
+        <property name="loginid" type="big_decimal">
+            <column name="LOGINID" precision="22" scale="0" not-null="true">
+                <comment>&#211;&#195;&#187;&#167;&#181;&#199;&#194;&#189;&#186;&#197;</comment>
+            </column>
+        </property>
+        <property name="funcid" type="big_decimal">
+            <column name="FUNCID" precision="22" scale="0">
+                <comment>&#181;&#199;&#194;&#188;&#202;&#215;&#210;&#179;</comment>
+            </column>
+        </property>
+        <property name="rmk" type="string">
+            <column name="RMK" length="200">
+                <comment>&#177;&#184;&#215;&#162;</comment>
+            </column>
+        </property>
+        <property name="crtuser" type="big_decimal">
+            <column name="CRTUSER" precision="22" scale="0" not-null="true">
+                <comment>&#180;&#180;&#189;&#168;&#213;&#223;</comment>
+            </column>
+        </property>
+        <property name="crttime" type="string">
+            <column name="CRTTIME" length="14" not-null="true">
+                <comment>&#180;&#180;&#189;&#168;&#200;&#213;&#198;&#218;</comment>
+            </column>
+        </property>
+        <property name="updtuser" type="big_decimal">
+            <column name="UPDTUSER" precision="22" scale="0">
+                <comment>&#215;&#238;&#186;&#243;&#208;&#222;&#184;&#196;&#213;&#223;</comment>
+            </column>
+        </property>
+        <property name="updttime" type="string">
+            <column name="UPDTTIME" length="14">
+                <comment>&#215;&#238;&#186;&#243;&#208;&#222;&#184;&#196;&#202;&#177;&#188;&#228;</comment>
+            </column>
+        </property>
+        <property name="vpdaStatus" type="string">
+            <column name="VPDA_STATUS" length="1">
+                <comment>PDA&#211;&#195;&#187;&#167;&#215;&#180;&#204;&#172;(0.&#202;&#185;&#211;&#195;&#163;&#172;1.&#189;&#251;&#211;&#195;)</comment>
+            </column>
+        </property>
+        <property name="vpdaFrcout" type="string">
+            <column name="VPDA_FRCOUT" length="1">
+                <comment>PDA&#199;&#191;&#208;&#208;&#199;&#169;&#205;&#203;&#177;&#234;&#214;&#190;(0.&#183;&#241;&#163;&#172;1.&#202;&#199;)</comment>
+            </column>
+        </property>
+        <property name="vpdaReset" type="string">
+            <column name="VPDA_RESET" length="1">
+                <comment>
+                PDA&#195;&#220;&#194;&#235;&#214;&#216;&#214;&#195;&#177;&#234;&#214;&#190;(0.&#183;&#199;&#214;&#216;&#214;&#195;&#163;&#172;1.&#214;&#216;&#214;&#195;)</comment>
+            </column>
+        </property>
+        <property name="vpdaMachid" type="string">
+            <column name="VPDA_MACHID" length="40">
+                <comment>PDA&#187;&#250;&#198;&#247;&#194;&#235;</comment>
+            </column>
+        </property>
+        <property name="vpdaPhone" type="string">
+            <column name="VPDA_PHONE" length="20">
+                <comment>PDA&#181;&#231;&#187;&#176;&#186;&#197;&#194;&#235;</comment>
+            </column>
+        </property>
+        <property name="vpdaStdate" type="string">
+            <column name="VPDA_STDATE" length="14">
+                <comment>PDA&#198;&#244;&#211;&#195;&#200;&#213;&#198;&#218;</comment>
+            </column>
+        </property>
+        <property name="vpdaFbdate" type="string">
+            <column name="VPDA_FBDATE" length="14">
+                <comment>PDA&#189;&#251;&#211;&#195;&#200;&#213;&#198;&#218;</comment>
+            </column>
+        </property>
+        <property name="vpdaUpdate" type="string">
+            <column name="VPDA_UPDATE" length="14">
+                <comment>PDA&#184;&#252;&#208;&#194;&#200;&#213;&#198;&#218;</comment>
+            </column>
+        </property>
+        <property name="portalid" type="string">
+            <column name="PORTALID" length="20" />
+        </property>
+        <set name="svwUserrolerels" table="AUTH_USERROLEREL" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="USERID" precision="22" scale="0" not-null="true">
+                    <comment>&#211;&#195;&#187;&#167;&#180;&#250;&#194;&#235;</comment>
+                </column>
+            </key>
+            <one-to-many class="com.guinea.account.entity.SvwUserrolerel" />
+        </set>
+    </class>
+</hibernate-mapping>

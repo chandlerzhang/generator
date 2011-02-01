@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	<session-factory>
+		<!-- mysql -->
+			<property name="dialect">org.hibernate.dialect.MySQL5InnoDBDialect</property> 
+			<property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property> 
+			<property name="hibernate.connection.url">jdbc:mysql://localhost:3306/mydb?useUnicode=true&amp;characterEncoding=utf-8</property> 
+			<property name="hibernate.connection.username">root</property> <property 
+			name="hibernate.connection.password">admin</property>
+		<mapping resource="com/guinea/account/entity/User.hbm.xml" />
+		<mapping resource="com/guinea/account/entity/Role.hbm.xml" />
+		<mapping resource="com/guinea/account/entity/Resource.hbm.xml" />
+		<mapping resource="com/guinea/account/entity/Contact.hbm.xml" />
+		<mapping resource="com/guinea/account/entity/Dictionary.hbm.xml" />
+		<mapping resource="com/guinea/account/entity/Menu.hbm.xml" />
+		<!-- oracle 
+		<property name="dialect">org.hibernate.dialect.Oracle9iDialect</property>
+		<property name="hibernate.connection.driver_class">oracle.jdbc.driver.OracleDriver</property>
+		<property name="hibernate.connection.url">jdbc:oracle:thin:@10.169.100.21:1521:inrdev</property>
+		<property name="hibernate.connection.username">crm3a</property>
+		<property name="hibernate.connection.password">saiscrm</property>
+		<property name="hibernate.default_schama">CRM3A</property> -->
+		<!-- property name="hibernate.connection.username">mydb</property-->
+		<!-- property name="hibernate.connection.password">admin</property-->
+		<!--<mapping resource="com/guinea/account/entity/Menu.hbm.xml" />-->
+		<!-- 
+		<mapping resource="com/guinea/account/entity/SvwFuncmsg.hbm.xml" />
+		<mapping resource="com/guinea/account/entity/SvwRolefuncrel.hbm.xml" />
+		<mapping resource="com/guinea/account/entity/SvwRolemsg.hbm.xml" />
+		<mapping resource="com/guinea/account/entity/SvwUsermsg.hbm.xml" />
+		<mapping resource="com/guinea/account/entity/SvwUserrolerel.hbm.xml" />
+		
+
+		 -->
+	</session-factory>
+</hibernate-configuration>
